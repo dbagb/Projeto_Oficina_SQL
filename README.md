@@ -24,7 +24,7 @@ O primeiro e mais importante processo a ser realizado durante a criação de um 
 Essa oficina será simulada como uma empresa de pequeno porte, a qual terá os seguintes setores:
 •	Financeiro – Responsável pelo gerenciamento das contas gerais da empresa, pagamentos de funcionários e notas fiscais da empresa.
 
-•	Produção – Responsável pela mão de obra principal da empresa, reparo de veículos e negociação direta com clientes. 
+•	*Produção* – Responsável pela mão de obra principal da empresa, reparo de veículos e negociação direta com clientes. 
 Para esses setores, serão listados os seguintes profissionais.
 •	Um assistente financeiro
 •	Três mecânicos eletricistas 
