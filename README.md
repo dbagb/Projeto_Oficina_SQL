@@ -56,8 +56,11 @@ Modelo Conceitual
 </h1>
 
 <p>
-A criação do modelo conceitual é o segundo processo para a criação do banco de dados, utilizaremos como base o Modelo Entidade-Relacionamento. Nessa etapa, será definida a estrutura do banco de dados de forma independente do SGBD utilizado. Definiremos os atributos das entidades e seus relacionamentos e modelo de cardinalidade entre as tabelas, tendo como objetivo visualizar, definir e gerar o entendimento da regra de negócio aplicada a criação do banco de dados.
+A criação do modelo conceitual é o segundo processo para a criação do banco de dados, utilizaremos como base o Modelo Entidade-Relacionamento. Nessa etapa, será definida a estrutura do banco de dados de forma independente do SGBD utilizado. Definiremos os atributos das entidades e seus relacionamentos e modelo de cardinalidade entre as tabelas, tendo como objetivo visualizar, definir e gerar o entendimento da regra de negócio aplicada a criação do banco de dados. Segue abaixo exemplo do modelo conceitual desenvolvido para esse projeto.
 </p>
+
+![Modelo Conceitual Oficina](https://user-images.githubusercontent.com/119353539/208750436-ce80ee2c-e9eb-4a67-a824-aa97210cfd6e.png)
+
 
 <h1>
 Cardinalidade e Relacionamento
@@ -93,7 +96,11 @@ Modelo Lógico
 
 <p>
 Etapa onde será definida as estruturas de armazenamento dos dados e seus relacionamentos. Serão definidos os principais componentes como Entidades, Atributos, Relacionamentos, Chaves primárias e estrangeiras e afins. Neste projeto iremos adotar o SGBD Microsoft SQL Server 2016, o qual utiliza o modelo relacional.
+Segue abaixo exemplo do modelo lógico definido para esse projeto.
 </p>
+
+
+![Modelo_Oficina_Lógico](https://user-images.githubusercontent.com/119353539/208750019-c12b7469-04c8-433b-9fed-89cc7e5aa7d8.png)
 
 
 <h1>
