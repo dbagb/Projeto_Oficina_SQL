@@ -243,4 +243,122 @@ Criação de usuários e definição de permissões
 
 <p>
 Para esse projeto, teremos dois usuários criados para acessar o banco de dados. Cada usuário terá suas limitações de permissões e privilégios de acessos ao banco.
-Para ver as definições dos usuários
+
+<h5>
+Usuários
+</h5>
+
+<p>
+
+• Gerente - Usuário com permissões para alterar, inserir e deletar dados do banco. Este usuário terá privilégios de permissão a nível DB_DATAWRITER.
+
+• Funcionário - Usuário com permissões e privilégios mais básicas dentro do banco de dados. Este usuário terá permissão e privilégio a nível DB_DATAREADER, onde será possível apenas visualizar os dados inseridos no banco através de SELECT's.
+
+</p>
+
+<h1>
+Inserindo dados nas tabelas
+</h1>
+
+<p>
+Nesta etapa iremos adicionar os registros nas tabelas para que possamos iniciar o projeto realizando algumas consultas mais específicas futuramente. 
+Inicialmente serão inseridos uma quantidade exata de registros nas tabelas:
+
+•	4 Registros na tabela funcionários
+
+•	2 Registros na tabela setores
+
+•	60 Registros na tabela Serviço Prestado
+
+•	40 Registros na tabela Clientes
+
+•	48 Registros na tabela Veículos
+
+</p>
+
+Para que esta etapa não tome muito espaço no projeto, o código gerado para toda a inserção poderá ser visto através deste link : INSERIR LINK AQUI
+
+<p>
+Serão descritos três registros em cada tabela aqui para que não fique muito extenso.
+Código de inserção de dados para a tabela FUNCIONÁRIOS
+-- ANTES DE INSERIR OS DADOS NA TABELA FUNCIONÁRIOS, DEVEMOS ATIVAR O IDENTITY_INSERT DA TABELA
+-- QUE CONSISTE EM ATIVAR A INSERÇÃO DE DADOS DE FORMA QUE O ID SEJA INCREMENTADO AUTOMÁTICAMENTE 
+</p>
+
+```
+SET IDENTITY_INSERT OFICINA_TESTE.DBO.FUNCIONARIOS_TESTE ON
+GO
+
+INSERT INTO FUNCIONARIOS_TESTE (ID_FUNC, NOME, CARGO, SEXO, TELEFONE, ENDERECO, BAIRRO, DATA_NASC, DATA_ADMISSAO, SALARIO, OBSERVACAO) VALUES 
+(1, 'VALÉRIA PEREIRA SANTOS' ,'ASSISTENTE FINANCEIRA' ,'F' ,'21996854631' , 'RUA FERNANDO GUIMARÃES Nº 145', 'PADRE MIGUEL', '24/08/1990' , '03/02/2020' ,1850.64 ,'ASSISTENTE ADMINISTRATIVA GERAL'),
+(2, 'VICTOR PAULO FERRIRA', 'SUPERVISOR MECÂNICO', 'M', '21977485221', 'AVENIDA TITUÍBA Nº 1015', 'BATAN', '11/09/1995', '09/01/2019',2750.31 ,'ELÉTRICA E MECÂNICA AVANÇADA'),
+(3, 'JEREMIAS MOREIRA ALVES', 'GERENTE GERAL MECÂNICO', 'M', '21968953676', 'RUA SÃO CLEMENTE Nº 13', 'SULACAP', '15/12/1980', '23/06/2018', 3620.87, 'ELÉTRICA E INJEÇÃO ELETRÔNICA AVANÇADA');
+```
+
+<p>Código de inserção de dados na tabela setores</p>
+
+```
+INSERT INTO SETORES_TESTE (NOME_SETOR, QNT_FUNC, FK_ID_FUNC) VALUES
+(1, 'FINANCEIRO', 1, 1),
+(2, 'LOGÍSTICA', 1, 5),
+(3,'REPARO AUTOMOTIVO', 3, 2),
+(4,'REPARO AUTOMOTIVO', 3, 3),
+(5,'REPARO AUTOMOTIVO', 3, 4);
+```
+
+<p>Código de inserção de dados na tabela Clientes</p>
+
+```
+INSERT INTO CLIENTES_TESTE (ID_CLIENTE, NOME_CLIENTE, ENDERECO, BAIRRO, DATA_NASC, CPF, TELEFONE) VALUES
+(1, 'ANTÔNIO FREITAS', 'RUA BELGÁRIO GOMES Nº 35', 'REALENGO', '11/02/1975', '42715246935', '21963389214'),
+(2, 'CLÁUDIO GOMES', 'AVENIDA SIQUEIRA CAMPOS Nº 1475', 'BANGU', '04/01/1980', '14236589782','21984522898'),
+(3, 'FERNANDA MACEDO', 'TRAVESSA CAMPO BELO Nº 11', 'BANGU', '15/08/1985', '325504070', '21977658214');
+```
+
+<p>Código de inserção de dados na tabela Veículos</p>
+
+```
+INSERT INTO VEICULOS_TESTE (ID_VEICULO, NOME_VEICULO, COR_VEICULO, PLACA, OBSERVACAO, FK_ID_CLIENTE) VALUES
+( 1, 'GOL', 'VERMELHO', 'RI02A18', 'VEÍCULO ARRANHADO NA LATERAL ESQUERDA, PINTURA DANIFICADA', '8'),
+( 2, 'CORSA', 'VERDE', 'SR04B23', 'PORTA ESQUERDA TRAVADA, ABRE APENAS POR DENTRO', '26'),
+( 3, 'PALIO', 'PRETO', 'LKO-0434', 'NENHUMA AVARIA', '2');
+```
+
+
+<p>Código de inserção de dados na tabela Serviço Prestado</p>
+
+```
+INSERT INTO SERVICO_PRESTADO_TESTE (ID_SERVICO, TIPO_SERVICO, HORA_INICIO, HORA_TERMINO, VALOR_PECA, VALOR_MO, DESCONTOS, FORMA_PG, VALOR_TOTAL, DESC_SERVICO, FK2_ID_FUNC, FK2_ID_VEICULO) VALUES
+(1, 1, '01/04/2022 09:40', '01/04/2022 10:05', 00.00, 50.00, 00.00, 1, 60.00, 'SCANNER INJEÇÃO ELETRÔNICA - DIAGNÓSTICO DO PROBLEMA', 4, 14),
+(2, 4, '01/04/2022 10:14'  , '01/04/2022 14:20', 280.00, 150.00, 10.00, 3, 420.00, 'LIMPEZA E TROCA DE BICOS DEFEITUOSOS, TROCA DE LÂMPADAS', 3, 21),
+( 3, 6, ' 01/04/2022 12:13', '01/04/2022 12:55'  , 00.00, 180.00, 00, 3, 180, 'CARGA DE GÁS - AR CONDICIONADO'  , 2, 16);
+```
+
+<p>Código de inserção de dados na tabela Tipo de Serviço</p>
+
+```
+INSERT INTO TIPO_SERVICO_TESTE (ID_TIPOSERVICO, TIPO_SERVICO, DESC_SERVICO) VALUES
+(1,'DIAGNÓSTICO ELETRÔNICO/ELÉTRICO','SCANNER INJEÇÃO ELETRÔNICA, DIAGNÓSTICO ELÉTRICO'),
+(2, 'REVISÃO ELÉTRICA', 'TROCA DE CABOS, VELAS, ÓLEO DE MOTOR E FILTROS, LIMPEZA DE BICOS, REVISÃO GERAL EM LANTERNAS'),
+(3, 'MANUTENÇÃO ELÉTRICA I', 'PROBLEMAS DE LANTERNAS, INSTALAÇÃO/PROBLEMAS DE ALARMES, INSTALAÇÃO/PROBLEMAS COM SEGREDOS, MULTIMÍDIA, INSTALAÇÃO/PROBLEMAS CÂMERA DE RÉ, PROBLEMAS COM LIMPADOR DE PARABRISA');
+```
+
+<p>Código de inserção na tabela Tipo de pagamento</p>
+
+```
+INSERT INTO TIPO_PG_TESTE (ID_TIPOPG, TIPO_PAGAMENTO) VALUES
+(1,'DINHEIRO' ),
+(2,'CARTÃO DÉBITO' ),
+(3,'CARTÃO CRÉDITO' ),
+(4,'DIVIDIDO CARTÃO E DINHEIRO' );
+```
+
+<h1>
+Etapa de criação de relatórios
+</h1>
+
+<p>
+Para a geração de relatórios gerenciais como por exemplo, relatórios diários sobre faturamento, relatórios analíticos mensais e demais relatórios com informações que possam ser importantes para gerenciar o negócio da empresa, optei por utilizar as views como recurso.
+
+Seguem abaixo os relatórios gerados e seus códigos
+</p>
